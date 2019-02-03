@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
     return { isFetching: state.ui.get('isFetching') };
 };
 
-
 @connect()
 export default class Spinner extends Component {
     render () {

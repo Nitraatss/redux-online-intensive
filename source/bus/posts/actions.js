@@ -17,15 +17,10 @@ export const postsActions = {
             payload: comment,
         };
     },
-    fetchPostsAsync: () => async (dispatch) => {
-        dispatch({
+    fetchPostsAsync: () => {
+        return {
             type: types.FETCH_POSTS_ASYNC,
-        });
-
-        const response = await api.posts.fetch();
-        const result = await response.json();
-
-        dispatch(postsActions.fillPosts(result.data));
+        };
     },
     createPostAsync: (comment) => {
         return {
