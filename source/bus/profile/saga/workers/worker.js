@@ -18,7 +18,7 @@ export function* worker () {
 
         yield put(postsActions.fillPosts(posts));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'profilePosts worker'));
+        yield put(uiActions.emitError(error, "profilePosts worker"));
     } finally {
         yield put(uiActions.stopFetching());
     }

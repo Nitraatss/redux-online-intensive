@@ -15,8 +15,9 @@ import { Composer, Catcher, Post } from "../../components";
 import { postsActions } from "../../bus/posts/actions";
 
 const mapStateToProps = (state) => {
-    return { posts: state.posts,
-            profile: state.profile
+    return {
+        posts:   state.posts,
+        profile: state.profile,
     };
 };
 

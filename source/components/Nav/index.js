@@ -9,17 +9,17 @@ import Styles from "./styles.m.css";
 import { book } from "../../navigation/book";
 
 const mapStateToProps = (state) => {
-    return { isAuthenticated: state.auth.get('isAuthenticated'),
-  profile: state.profile };
+    return {
+        isAuthenticated: state.auth.get("isAuthenticated"),
+        profile:         state.profile,
+    };
 };
 
-@connect(
-    mapStateToProps
-)
+@connect(mapStateToProps)
 export default class Nav extends Component {
     static defaultProps = {
         // State
-        isOnline:        false,
+        isOnline: false,
 
         // Actions
         logoutAsync: () => {},

@@ -1,15 +1,15 @@
 // Core
-import {Map} from 'immutable';
+import { Map } from "immutable";
 
 // types
 import { types } from "./types";
 
 const initialState = Map({
-  id: '',
-  firstName: '',
-  lastName: '',
-  avatar: '',
-  token: '',
+    id:        "",
+    firstName: "",
+    lastName:  "",
+    avatar:    "",
+    token:     "",
 });
 
 export const profileReducer = (state = initialState, action) => {

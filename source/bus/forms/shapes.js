@@ -2,7 +2,7 @@
 import { object, string, boolean } from "yup";
 
 // Instruments
-import {invite} from '../../REST'
+import { invite } from "../../REST";
 
 export const login = {
     shape: {

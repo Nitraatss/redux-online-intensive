@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Styles from "./styles.m.css";
 
 const mapStateToProps = (state) => {
-    return { isFetching: state.ui.get('isFetching') };
+    return { isFetching: state.ui.get("isFetching") };
 };
 
 @connect(mapStateToProps)

@@ -9,17 +9,20 @@ import Styles from "./styles.m.css";
 import { login } from "../../bus/forms/shapes";
 
 // Actions
-import {authActions} from '../../bus/auth/actions';
+import { authActions } from "../../bus/auth/actions";
 
 const mapStateToProps = (state) => {
-    return { isFetching: state.ui.get('isFetching') };
+    return { isFetching: state.ui.get("isFetching") };
 };
 
 const mapDispatchToProps = {
-  loginAsync: authActions.loginAsync
+    loginAsync: authActions.loginAsync,
 };
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
 export default class LoginForm extends Component {
     _submitLoginForm = (credentials) => {
         this.props.loginAsync(credentials);

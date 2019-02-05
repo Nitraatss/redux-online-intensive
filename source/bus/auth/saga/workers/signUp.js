@@ -1,6 +1,6 @@
 // Core
 import { put, apply } from "redux-saga/effects";
-import {delay} from "redux-saga";
+import { delay } from "redux-saga";
 
 // instruments
 import { api } from "../../../../REST";
@@ -8,7 +8,7 @@ import { authActions } from "../../../auth/actions";
 import { uiActions } from "../../../ui/actions";
 import { profileActions } from "../../../profile/actions";
 
-export function* signUp ({payload: userData}) {
+export function* signUp ({ payload: userData }) {
     try {
         yield put(uiActions.startFetching());
 
@@ -22,7 +22,7 @@ export function* signUp ({payload: userData}) {
         yield put(profileActions.fillProfile(profile));
         yield put(authActions.authenticate());
     } catch (error) {
-        yield put(uiActions.emitError(error, 'signUp worker'));
+        yield put(uiActions.emitError(error, "signUp worker"));
     } finally {
         yield put(uiActions.stopFetching());
     }
