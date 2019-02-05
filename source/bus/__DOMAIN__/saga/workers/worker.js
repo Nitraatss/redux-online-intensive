@@ -3,10 +3,9 @@ import { put, apply } from "redux-saga/effects";
 
 // instruments
 import { api } from "../../../../REST";
-import { postsActions } from "../../actions";
 import { uiActions } from "../../../ui/actions";
 
-export function* fetchPosts () {
+export function* worker () {
     try {
         yield put(uiActions.startFetching());
 

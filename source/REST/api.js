@@ -2,6 +2,26 @@
 import { groupId, invite, MAIN_URL } from "./config";
 
 export const api = {
+    auth:{
+      signUp (userInfo) {
+        return fetch(`${MAIN_URL}/user/${groupId}`, {
+            method:  "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify( userInfo ),
+        });
+      },
+      logIn (userInfo) {
+        return fetch(`${MAIN_URL}/user/login`, {
+            method:  "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify( userInfo ),
+        });
+      }
+    },
     posts: {
         fetch () {
             return fetch(`${MAIN_URL}/feed`, {
