@@ -13,11 +13,11 @@ export const uiActions = {
         };
     },
     emitError: (error, meta = null) => {
-      return {
-        type: types.EMIT__ERROR,
-        payload: error,
-        error: true,
-        meta,
-      }
-    }
+        return {
+            type:    types.EMIT__ERROR,
+            payload: error,
+            error:   true,
+            meta,
+        };
+    },
 };
