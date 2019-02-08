@@ -8,19 +8,15 @@ import { authActions } from "../../../auth/actions";
 import { uiActions } from "../../../ui/actions";
 import { profileActions } from "../../../profile/actions";
 
-export function* logIn ({ payload: credentials }) {
+export function* authenticate () {
     try {
         yield put(uiActions.startFetching());
 
-        const response = yield apply(api, api.auth.logIn, [credentials]);
+        const response = yield apply(api, api.auth.authenticate);
         const { data: profile, message } = yield apply(response, response.json);
 
         if (response.status !== 200) {
             throw new Error(message);
-        }
-
-        if (credentials.remember) {
-            yield apply(localStorage, localStorage.setItem, ["remember", true]);
         }
 
         yield apply(localStorage, localStorage.setItem, [
@@ -31,8 +27,9 @@ export function* logIn ({ payload: credentials }) {
         yield put(profileActions.fillProfile(profile));
         yield put(authActions.authenticate());
     } catch (error) {
-        yield put(uiActions.emitError(error, "logIn worker"));
+        yield put(uiActions.emitError(error, "authenticate worker"));
     } finally {
         yield put(uiActions.stopFetching());
+        yield put(authActions.initialize());
     }
 }
