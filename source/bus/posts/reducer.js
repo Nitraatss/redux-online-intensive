@@ -22,6 +22,18 @@ export const postsReducer = (state = initialState, action) => {
                 return post.get("id") !== action.payload;
             });
         }
+        case types.LIKE_POST:
+            return state.updateIn(
+                [
+                    state.findIndex((post) => {
+                        return post.get("id") === action.payload.postID;
+                    }),
+                    "likes"
+                ],
+                (likes) => {
+                    return likes.unshift(action.payload.liker);
+                }
+            );
 
         default:
             return state;
