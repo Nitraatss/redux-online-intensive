@@ -53,10 +53,10 @@ export const newPassword = {
     schema: object().shape({
         oldPassword: string()
             .required()
-            .min(5),
+            .min(3),
         newPassword: string()
             .required()
-            .min(5),
+            .min(3),
     }),
 };
 
