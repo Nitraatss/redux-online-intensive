@@ -1,6 +1,6 @@
 // Core
 import { put, apply } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { actions } from "react-redux-form";
 
 // instruments
 import { api } from "../../../../REST";
@@ -29,6 +29,12 @@ export function* logIn ({ payload: credentials }) {
         ]);
 
         yield put(profileActions.fillProfile(profile));
+        yield put(
+            actions.change("forms.user.profile.firstName", profile.firstName)
+        );
+        yield put(
+            actions.change("forms.user.profile.lastName", profile.lastName)
+        );
         yield put(authActions.authenticate());
     } catch (error) {
         yield put(uiActions.emitError(error, "logIn worker"));
