@@ -24,7 +24,7 @@ export function* likePost ({ payload: postID }) {
 
         yield put(postsActions.likePost({ liker, postID }));
     } catch (error) {
-        yield put(uiActions.emitError(error, "removePost worker"));
+        yield put(uiActions.emitError(error, "likePost worker"));
     } finally {
         yield put(uiActions.stopFetching());
     }

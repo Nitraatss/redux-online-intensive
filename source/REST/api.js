@@ -5,6 +5,16 @@ export const api = {
     get token () {
         return localStorage.getItem("token");
     },
+    users: {
+        fetch () {
+            return fetch(`${MAIN_URL}/user/all`, {
+                method:  "GET",
+                headers: {
+                    Authorization: this.token,
+                },
+            });
+        },
+    },
     auth: {
         signUp (userInfo) {
             return fetch(`${MAIN_URL}/user/${groupId}`, {
